@@ -23,6 +23,7 @@ public class Client {
 		RouteFilters
 		.filter(routeList, route->route.getState().equals("TX"))
 		.forEach(System.out::println);
+		
 	}
 
 }
