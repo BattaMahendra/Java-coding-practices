@@ -1,0 +1,10 @@
+SOLID
+
+S- Single Responsibility
+O- Open/Closed Principle
+L- Liskov Substitution Principle
+I- Interface Segmented
+D- Dependency Inversion
+
+O- Open for extension but closed for modification
+D- Depend on interface rather than concrete classes
