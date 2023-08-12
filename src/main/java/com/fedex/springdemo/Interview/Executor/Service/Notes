@@ -1,1 +1,8 @@
 Executor
+
+Task can implements Runnable where client doesn't expect any return type
+
+Task can implements callable when client expects any response.
+
+executor can use submit method for both Runnable and callable.
+but execute method will only work with Runnable
