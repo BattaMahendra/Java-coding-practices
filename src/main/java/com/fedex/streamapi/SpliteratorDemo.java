@@ -20,7 +20,7 @@ public class SpliteratorDemo {
 			Spliterator<String> baseSpliterator=words.spliterator();
 			Spliterator<EmployeeObject> spliterator=new EmployeeSpliterator(baseSpliterator);
 			Stream<EmployeeObject> employeeObjectStream=StreamSupport.stream(spliterator,false);
-			List<EmployeeObject> employeeObjectList=employeeObjectStream.collect(Collectors.toList());
+			//List<EmployeeObject> employeeObjectList=employeeObjectStream.collect(Collectors.toList());
 			//employeeObjectStream.forEach(System.out::println);
 //        Map<String,List<EmployeeObject>> designationSalaryMap=employeeObjectStream.collect(Collectors.groupingBy(
 //                e->e.getDesignation(),Collectors.toList()
@@ -33,27 +33,27 @@ public class SpliteratorDemo {
 //                e->e.getDesignation(),Collectors.averagingInt(e->e.getSalary())
 //        ));
 
-//        Map<String,Optional<EmployeeObject>> designationAvgSalary=employeeObjectStream.collect(Collectors.groupingBy(
-//                e->e.getDesignation(),Collectors.maxBy((e1,e2)->{
-//                    if(e1.getSalary()> e2.getSalary()){
-//                        return 0;
-//                    }else{
-//                        return -1;
-//                    }
-//                })
-//        ));
-			Map<String, Optional<Integer>> maxSalaries =
-			        employeeObjectList.stream()
-			                .collect(
-			                        Collectors.groupingBy(
-			                                e -> e.getDesignation(),
-			                                Collectors.mapping(
-			                                        e -> e.getSalary(),
-			                                        Collectors.maxBy(Comparator.comparing(Function.identity()))
-			                                )
-			                        )
-			                );
-			System.out.println(maxSalaries);
+        Map<String,Optional<EmployeeObject>> designationAvgSalary=employeeObjectStream.collect(Collectors.groupingBy(
+                e->e.getDesignation(),Collectors.maxBy((e1,e2)->{
+                    if(e1.getSalary()> e2.getSalary()){
+                        return 0;
+                    }else{
+                        return -1;
+                    }
+                })
+        ));
+//			Map<String, Optional<Integer>> maxSalaries =
+//			        employeeObjectList.stream()
+//			                .collect(
+//			                        Collectors.groupingBy(
+//			                                e -> e.getDesignation(),
+//			                                Collectors.mapping(
+//			                                        e -> e.getSalary(),
+//			                                        Collectors.maxBy(Comparator.comparing(Function.identity()))
+//			                                )
+//			                        )
+//			                );
+			System.out.println(designationAvgSalary);
 		}
     }
 }
