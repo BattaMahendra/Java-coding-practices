@@ -1,4 +1,4 @@
-package streamapi;
+package com.fedex.streamapi;
 
 import java.util.HashMap;
 import java.util.List;
