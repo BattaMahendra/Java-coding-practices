@@ -1,6 +1,7 @@
-package com.fedex.streamapi;
+package streamapi;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Customer {
     private String id;
@@ -45,5 +46,33 @@ public class Customer {
 
     public void setPhoneNumber(List<String> phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime=31;
+        int result =1;
+        result= prime*result+id.hashCode();
+        result= prime*result+name.hashCode();
+        result= prime*result+address.hashCode();
+        return result;
     }
 }
