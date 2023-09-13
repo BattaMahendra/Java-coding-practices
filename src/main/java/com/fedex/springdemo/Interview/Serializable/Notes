@@ -1,0 +1,4 @@
+Converting objects to Byte Stream
+should implement Serializable Interface
+Marker interface which doesn't have any methods or variables.
+Informs JVM that class can be serialized
