@@ -1,0 +1,5 @@
+Linked List :-
+1) variable size
+2) Non-contiguous memory
+3) insert in O(1)
+4) search in O(n)
